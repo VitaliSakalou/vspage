@@ -48,6 +48,7 @@ const Home = ({ data }: any) => {
 			<Head>
 				<title>Home page</title>
 			</Head>
+			<h1>Hello world!</h1>
 			<div>
 				<h3>{data.greeting.title}</h3>
 				<p>{data.greeting.description}</p>
