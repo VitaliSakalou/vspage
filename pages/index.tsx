@@ -65,7 +65,7 @@ const Home = ({ data }: any) => {
 			</div>
 			<br />
 			<div>
-				<h3>Experiance</h3>
+				<h3>Experience</h3>
 				{data.experiences.map((item: any) => {
 					return (
 						<div key={item.id}>
