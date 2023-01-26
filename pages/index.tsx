@@ -5,6 +5,7 @@ import oneUp from '../public/1up.jpeg';
 import { gql } from '@apollo/client';
 import Link from 'next/link';
 import client from '../apolloClient';
+import Typewriter from 'typewriter-effect';
 
 export const getStaticProps = async () => {
 	const { data } = await client.query({
@@ -12,6 +13,7 @@ export const getStaticProps = async () => {
 			query {
 				greeting(where: { id: "cld83dcckvs1x0an7f5x99aet" }) {
 					title
+					name
 					description
 					id
 				}
@@ -49,8 +51,16 @@ const Home = ({ data }: any) => {
 				<title>Home page</title>
 			</Head>
 			<h1>Hello world!</h1>
+			<div style={{ color: 'red' }}>
+				<Typewriter
+					onInit={(typewriter) => {
+						typewriter.typeString(data.greeting.title).start();
+					}}
+				/>
+			</div>
+
 			<div>
-				<h3>{data.greeting.title}</h3>
+				<h3>{data.greeting.name}</h3>
 				<p>{data.greeting.description}</p>
 			</div>
 			<br />
