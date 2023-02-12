@@ -1,7 +1,6 @@
 import styles from '../styles/Home.module.scss';
 import Head from 'next/head';
 import Image from 'next/image';
-import oneUp from '../public/1up.jpeg';
 import { gql } from '@apollo/client';
 import Link from 'next/link';
 import client from '../apolloClient';
@@ -50,7 +49,6 @@ const Home = ({ data }: any) => {
 			<Head>
 				<title>Home page</title>
 			</Head>
-			<h1>Hello world!</h1>
 			<div style={{ color: 'red' }}>
 				<Typewriter
 					onInit={(typewriter) => {
@@ -64,7 +62,7 @@ const Home = ({ data }: any) => {
 				<p>{data.greeting.description}</p>
 			</div>
 			<br />
-			<div>
+			<div id={'about'} style={{ margin: '1000px 0px' }}>
 				<h3>{data.about.title}</h3>
 				<p>{data.about.description.text}</p>
 				<div>
@@ -74,7 +72,7 @@ const Home = ({ data }: any) => {
 				</div>
 			</div>
 			<br />
-			<div>
+			<div id={'experience'} style={{ margin: '1000px 0px' }}>
 				<h3>Experience</h3>
 				{data.experiences.map((item: any) => {
 					return (
