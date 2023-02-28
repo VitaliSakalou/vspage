@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	* {
+		--tw-backdrop-blur: ;
+		--will-be-deleted: ;
+		--tw-backdrop-brightness: ;
+		--will-be-deleted: ;
+	}
+}
+
 .resume-btn {
 	@apply py-1 px-3 border-2 rounded-full border-indigo-400 text-indigo-600 hover:text-white hover:bg-indigo-400;
 }
