@@ -31,7 +31,7 @@ const MobileNavbar = ({
 					e.stopPropagation();
 				}}
 			>
-				<nav className="flex justify-center">
+				<nav className="flex justify-center mt-16">
 					<ul className="inline-flex justify-center flex-col items-center">
 						{navigation.map(({ id, title, path }) => {
 							const linkStyle = classNames('my-8', {
