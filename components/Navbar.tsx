@@ -6,10 +6,8 @@ import useWindowWidth from '../hooks/useWindowWidth';
 import MobileNavbar from './MobileNavbar';
 import DesktopNavbar from './DesktopNavbar';
 import MenuButton from './MenuButton';
-import navigation from '../constants/navigation';
 import breakpoints from '../constants/breakpoints';
 import avatar from '../public/images/avatar.jpeg';
-import classNames from 'classnames';
 
 const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
