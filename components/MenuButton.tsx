@@ -4,32 +4,34 @@ type MenuButtonType = {
 };
 
 const spanStyle =
-	'block absolute h-[2px] bg-black opacity-1 left-0 rotate-0 transition duration-250 ease-in-out';
+	'block absolute h-[2px] bg-black opacity-1 left-0 rotate-0 transition-closeButton duration-[300ms]';
 
 const MenuButton = ({ menuOpen, setMenuOpenCb }: MenuButtonType) => (
 	<button
-		className="absolute top-6 right-0 z-50 md:hidden transition duration-150 ease-in-out"
+		className="absolute top-6 right-0 z-50 md:hidden "
 		onClick={() => setMenuOpenCb(!menuOpen)}
 	>
-		<div className="w-[32px] h-[24px] relative mx-auto rotate-0 transition duration-500 ease-in-out">
+		<div className="w-[32px] h-[24px] relative mx-auto rotate-0 ">
 			<span
-				className={`${spanStyle} top-0 ${
-					menuOpen ? 'top-[9px] w-0 left-[50%]' : 'w-[100%]'
+				className={`${spanStyle} ${
+					menuOpen ? 'top-[9px] w-0 left-[50%]' : 'top-0 w-[32px]'
 				}`}
 			></span>
 			<span
-				className={`${spanStyle} top-[9px] w-[100%] ${
+				className={`${spanStyle} top-[9px] w-[32px] ${
 					menuOpen ? 'rotate-45' : ''
 				}`}
 			></span>
 			<span
-				className={`${spanStyle} top-[9px] w-[100%] ${
+				className={`${spanStyle} top-[9px] w-[32px] ${
 					menuOpen ? '-rotate-45' : ''
 				}`}
 			></span>
 			<span
-				className={`${spanStyle} top-[18px] ${
-					menuOpen ? 'top-[18px] w-0 left-[50%]' : 'w-[100%]'
+				className={`${spanStyle}  ${
+					menuOpen
+						? 'top-[9px] w-0 left-[50%]'
+						: ' top-[18px] w-[32px]'
 				}`}
 			></span>
 		</div>

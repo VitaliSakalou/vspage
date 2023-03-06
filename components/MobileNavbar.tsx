@@ -22,8 +22,8 @@ const MobileNavbar = ({
 			}}
 			onScroll={(e) => e.stopPropagation()}
 			className={`${
-				menuOpen ? 'w-full' : 'overflow-hidden w-0'
-			} fixed flex z-50 right-0 bottom-0 backdrop-blur-md backdrop-brightness-75 justify-end transition-width duration-200 ease-in`}
+				menuOpen ? 'right-0 left-0' : 'left-[100%]'
+			} fixed flex z-50  bottom-0 backdrop-blur-md backdrop-brightness-75 justify-end transition-left duration-[500ms]  w-full`}
 		>
 			<div
 				className="bg-white p-6 w-[80%] h-[100vh]"
