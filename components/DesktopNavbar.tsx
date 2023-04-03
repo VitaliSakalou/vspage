@@ -24,7 +24,7 @@ const DesktopNavbar = ({
 			className={'static flex justify-end'}
 		>
 			<div
-				className="h-fit w-fit bg-slate-500"
+				className="h-fit w-fit"
 				onClick={(e) => {
 					e.stopPropagation();
 				}}
