@@ -3,16 +3,16 @@ import '../styles/globals.scss';
 import Layout from '../components/Layout';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { Montserrat } from '@next/font/google';
+
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-mont',
+});
 
 const App = ({ Component, pageProps }: AppProps) => (
 	<Layout>
-		{/* <Head>
-			<link
-				href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,200&display=swap"
-				rel="stylesheet"
-			/>
-		</Head> */}
-		<main>
+		<main className={`${montserrat.variable} font-mont`}>
 			<Component {...pageProps} />
 		</main>
 	</Layout>

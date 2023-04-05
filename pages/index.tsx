@@ -5,6 +5,7 @@ import { gql } from '@apollo/client';
 import Link from 'next/link';
 import client from '../apolloClient';
 import Typewriter from 'typewriter-effect';
+import Skills from '../components/Skills';
 
 export const getStaticProps = async () => {
 	const { data } = await client.query({
@@ -65,11 +66,7 @@ const Home = ({ data }: any) => {
 			<div id={'about'} style={{ margin: '1000px 0px' }}>
 				<h3>{data.about.title}</h3>
 				<p>{data.about.description.text}</p>
-				<div>
-					{data.about.technologies.map((item: string) => (
-						<p key={item}>{item}</p>
-					))}
-				</div>
+				<Skills skills={data.about.technologies} />
 			</div>
 			<br />
 			<div id={'experience'} style={{ margin: '1000px 0px' }}>
