@@ -11,11 +11,11 @@ const montserrat = Montserrat({
 });
 
 const App = ({ Component, pageProps }: AppProps) => (
-	<Layout>
-		<main className={`${montserrat.variable} font-mont`}>
+	<div className={`${montserrat.variable} font-mont`}>
+		<Layout>
 			<Component {...pageProps} />
-		</main>
-	</Layout>
+		</Layout>
+	</div>
 );
 
 export default App;

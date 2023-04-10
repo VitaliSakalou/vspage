@@ -6,38 +6,41 @@ import Link from 'next/link';
 import client from '../apolloClient';
 import Typewriter from 'typewriter-effect';
 import Skills from '../components/Skills';
+import Experience from '../components/Experience';
+import Greeting from '../components/Greeting';
 
 export const getStaticProps = async () => {
 	const { data } = await client.query({
 		query: gql`
 			query {
-				greeting(where: { id: "cld83dcckvs1x0an7f5x99aet" }) {
-					title
-					name
+				greeting(where: { id: "clga78iggb7mz0atz966gj2we" }) {
 					description
-					id
-				}
-				about(where: { id: "cld82sehoveh00bn2f2px1ool" }) {
+					name
 					title
-					description {
-						text
-					}
-					id
+				}
+				skill(where: { id: "clgacw0e8bdbo0atzepcyiw0j" }) {
 					technologies
 				}
 				experiences {
+					id
+					description
 					role
 					companyName
-					id
+					dateTo
+					dateFrom
+					description
+					location
 				}
 			}
 		`,
 	});
+
 	if (!data) {
 		return {
 			notFound: true,
 		};
 	}
+
 	return {
 		props: { data },
 	};
@@ -45,41 +48,36 @@ export const getStaticProps = async () => {
 
 const Home = ({ data }: any) => {
 	console.log({ data });
+	const { name, description, title } = data.greeting;
+	const { technologies } = data.skill || {};
+	const { experiences } = data;
 	return (
 		<>
 			<Head>
 				<title>Home page</title>
 			</Head>
-			<div style={{ color: 'red' }}>
-				<Typewriter
-					onInit={(typewriter) => {
-						typewriter.typeString(data.greeting.title).start();
-					}}
-				/>
-			</div>
-
-			<div>
-				<h3>{data.greeting.name}</h3>
-				<p>{data.greeting.description}</p>
-			</div>
-			<br />
-			<div id={'about'} style={{ margin: '1000px 0px' }}>
-				<h3>{data.about.title}</h3>
-				<p>{data.about.description.text}</p>
-				<Skills skills={data.about.technologies} />
-			</div>
-			<br />
-			<div id={'experience'} style={{ margin: '1000px 0px' }}>
-				<h3>Experience</h3>
-				{data.experiences.map((item: any) => {
-					return (
-						<div key={item.id}>
-							<p>{item.role}</p>
-							<p>{item.companyName}</p>
-						</div>
-					);
-				})}
-			</div>
+			<main>
+				<div style={{ color: 'red' }}>
+					<Typewriter
+						onInit={(typewriter) => {
+							typewriter.typeString(data.greeting.title).start();
+						}}
+					/>
+				</div>
+				<div id={'greeting'}>
+					<Greeting
+						name={name}
+						description={description}
+						title={title}
+					/>
+				</div>
+				<div id={'skills'}>
+					<Skills skills={technologies} />
+				</div>
+				<div id={'experience'}>
+					<Experience experiences={experiences} />
+				</div>
+			</main>
 		</>
 	);
 };
