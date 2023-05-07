@@ -1,5 +1,3 @@
-import Header from './Header';
-import Footer from './Footer';
 import React from 'react';
 
 type LayoutProps = {
@@ -7,11 +5,7 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => (
-	<div className="max-w-screen-xl mx-auto">
-		<Header />
-		{children}
-		<Footer />
-	</div>
+	<div className="sm:px-8 md:px-12 2xl:px-24">{children}</div>
 );
 
 export default Layout;

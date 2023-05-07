@@ -6,6 +6,7 @@ export type DetailsType = {
 	id: string;
 	role: string;
 	companyName: string;
+	companyUrl: string;
 	dateTo: string;
 	dateFrom: string;
 	description: string;
@@ -23,7 +24,7 @@ const Experience = ({ experiences }: ExperienceType) => {
 		offset: ['start end', 'center start'],
 	});
 	return (
-		<div className="mb-[600px]">
+		<div className="my-64">
 			<h2 className="font-bold text-8xl mb-32 w-full text-center">
 				Experience
 			</h2>
@@ -40,6 +41,7 @@ const Experience = ({ experiences }: ExperienceType) => {
 								id={item.id}
 								role={item.role}
 								companyName={item.companyName}
+								companyUrl={item.companyUrl}
 								dateTo={item.dateTo}
 								dateFrom={item.dateFrom}
 								description={item.description}

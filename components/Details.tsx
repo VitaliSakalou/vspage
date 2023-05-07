@@ -3,10 +3,12 @@ import LiIcon from './LiIcon';
 import { motion } from 'framer-motion';
 import { DetailsType } from './Experience';
 import moment from 'moment';
+import Link from 'next/link';
 
 const Details = ({
 	role,
 	companyName,
+	companyUrl,
 	dateTo,
 	dateFrom,
 	description,
@@ -28,7 +30,14 @@ const Details = ({
 				<h3 className="capitalize font-bold text-2xl">
 					{role}&nbsp;{' '}
 					<span className="capitalize text-cyan-600">
-						@{companyName}
+						@
+						<Link
+							target="_blank"
+							href={companyUrl}
+							className="underline underline-offset-2"
+						>
+							{companyName}
+						</Link>
 					</span>
 				</h3>
 				<span className="capitalize font-medium text-dark/75">

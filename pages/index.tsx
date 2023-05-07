@@ -8,6 +8,9 @@ import Typewriter from 'typewriter-effect';
 import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Greeting from '../components/Greeting';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Contact from '../components/Contact';
 
 export const getStaticProps = async () => {
 	const { data } = await client.query({
@@ -26,10 +29,14 @@ export const getStaticProps = async () => {
 					description
 					role
 					companyName
+					companyUrl
 					dateTo
 					dateFrom
 					description
 					location
+				}
+				contact(where: { id: "clhcuehgn9n3f0audig3i5hbg" }) {
+					contactGreeting
 				}
 			}
 		`,
@@ -48,36 +55,45 @@ export const getStaticProps = async () => {
 
 const Home = ({ data }: any) => {
 	console.log({ data });
-	const { name, description, title } = data.greeting;
-	const { technologies } = data.skill || {};
-	const { experiences } = data;
+	const {
+		greeting: { name, description, title },
+		contact: { contactGreeting },
+		skill: { technologies },
+		experiences,
+	} = data;
+
 	return (
 		<>
 			<Head>
 				<title>Home page</title>
 			</Head>
-			<main>
-				<div style={{ color: 'red' }}>
+			<Header />
+			<main className="sm:px-8 md:px-12 2xl:px-24">
+				{/* <div style={{ color: 'red' }}>
 					<Typewriter
 						onInit={(typewriter) => {
 							typewriter.typeString(data.greeting.title).start();
 						}}
 					/>
-				</div>
-				<div id={'greeting'}>
+				</div> */}
+				<section id={'greeting'}>
 					<Greeting
 						name={name}
 						description={description}
 						title={title}
 					/>
-				</div>
-				<div id={'skills'}>
+				</section>
+				<section id={'skills'}>
 					<Skills skills={technologies} />
-				</div>
-				<div id={'experience'}>
+				</section>
+				<section id={'experience'}>
 					<Experience experiences={experiences} />
-				</div>
+				</section>
+				<section id={'contact'}>
+					<Contact contactGreeting={contactGreeting} />
+				</section>
 			</main>
+			<Footer />
 		</>
 	);
 };

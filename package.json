@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.4",
+    "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.5",
@@ -20,12 +21,14 @@
     "classnames": "^2.3.2",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "formik": "^2.2.9",
     "framer-motion": "^10.10.0",
     "graphql": "^16.6.0",
     "moment": "^2.29.4",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "sass": "^1.57.1",
     "typescript": "4.9.4",
     "typewriter-effect": "^2.19.0"
